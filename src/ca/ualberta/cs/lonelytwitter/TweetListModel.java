@@ -4,18 +4,18 @@ import java.util.ArrayList;
 
 public class TweetListModel {
 
-	private static ArrayList<LonelyTweetModel> tweetlist;
+	private static ArrayList<AbstractTweetModel> tweetlist;
 	
 	public TweetListModel() {
 		super();
-		tweetlist = new ArrayList<LonelyTweetModel>();
+		tweetlist = new ArrayList<AbstractTweetModel>();
 	}
 
-	public ArrayList<LonelyTweetModel> getTweetlist() {
+	public ArrayList<AbstractTweetModel> getTweetlist() {
 		return tweetlist;
 	}
 
-	public void setTweetlist(ArrayList<LonelyTweetModel> tweetlist) {
+	public void setTweetlist(ArrayList<AbstractTweetModel> tweetlist) {
 		this.tweetlist = tweetlist;
 	}
 	
