@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 
 import ca.ualberta.cs.lonelytwitter.LonelyTwitterActivity;
 import ca.ualberta.cs.lonelytwitter.NormalTweetModel;
@@ -28,26 +29,27 @@ public class TweetSetModelTest extends ActivityInstrumentationTestCase2<LonelyTw
 	{
 		TweetSetModel tweets = new TweetSetModel();
 
-		ArrayList<NormalTweetModel> tweetstest = new ArrayList<NormalTweetModel>();
-		tweets.addTweet(new NormalTweetModel("test1"));
-		tweetstest.add(new NormalTweetModel("test1"));
+		Date adate = new Date();
+		NormalTweetModel[] array = new NormalTweetModel[3];
 		
-		tweets.addTweet(new NormalTweetModel("test2"));
-		tweetstest.add(new NormalTweetModel("test2"));
+		NormalTweetModel model = new NormalTweetModel("test1", adate);
+		tweets.addTweet(model);
+		array[0] = model;
 		
-		tweets.addTweet(new NormalTweetModel("test3"));
-		tweetstest.add(new NormalTweetModel("test3"));
+		model = new NormalTweetModel("test2", adate);
+		tweets.addTweet(model);
+		array[1] = model;
 		
-		tweets.addTweet(new NormalTweetModel("test4"));
-		tweetstest.add(new NormalTweetModel("test4"));
+		model = new NormalTweetModel("test3", adate);
+		tweets.addTweet(model);
+		array[2] = model;
 		
-		tweets.addTweet(new NormalTweetModel("test5"));
-		tweetstest.add(new NormalTweetModel("test5"));
+		NormalTweetModel[] tweet = tweets.getTweets();
 		
-		NormalTweetModel tweet[] = tweets.getTweets();
-		NormalTweetModel[] array = (NormalTweetModel[])tweetstest.toArray();
+		assertEquals("These 2 arrays are equal", tweet[0], array[0]);
 		
-		assertEquals("These 2 arrays are equal", tweet, array);
+		model = new NormalTweetModel("test1", adate);
+		tweets.addTweet(model);
 		
 	}
 

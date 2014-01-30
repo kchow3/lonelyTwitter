@@ -17,14 +17,23 @@ public class TweetSetModel {
 		return count;
 	}
 
-	public void addTweet(NormalTweetModel normalTweetModel) {
+	public void addTweet(NormalTweetModel normalTweetModel) throws IllegalArgumentException
+	{
+		
+		for(int i = 0; i <count; i++)
+		{
+			if(list.get(i).equals(normalTweetModel))
+			{
+				throw new IllegalArgumentException();	
+			}
+		}
+		
 		count++;
 		list.add(normalTweetModel);
 	}
 
 	public NormalTweetModel[] getTweets() {
-		
-		return (NormalTweetModel[]) list.toArray();
+		return list.toArray(new NormalTweetModel[list.size()]);
 	}
 
 }
